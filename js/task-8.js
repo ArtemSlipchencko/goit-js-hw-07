@@ -1,20 +1,26 @@
 const root = document.querySelector("#task-8");
 const container = root.querySelector(".container");
+const input = root.querySelector("#amount");
+const crt = root.querySelector("#create");
+const dlt = root.querySelector("#remove");
+
+
 
 
 const createBoxes = function(amount) {
     let item;
     let width = 0;
     let height = 0;
+    
 
     for (let i = 1; i <= amount; i++) {
         item = document.createElement("div");
-        container.append(item);
+        container.appendChild(item);
         const color1 = Math.floor(Math.random() * 255);
         const color2 = Math.floor(Math.random() * 255);
         const color3 = Math.floor(Math.random() * 255);
         item.style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`;
-        if (i = 1) {
+        if (i === 1) {
             width = 30;
             height = 30;
             item.style.width = `${width}px`;
@@ -29,8 +35,27 @@ const createBoxes = function(amount) {
     };
 };
 
-createBoxes(3);
-console.log(+item.style.width);
+const destroyBoxes = function() {
+
+    const arr = [...container.children];
+    
+
+    for(let child of arr) {
+        container.removeChild(child);
+    }
+};
+
+crt.addEventListener("click", ()=> {
+    const amount = +input.value;
+    createBoxes(amount);
+});
+dlt.addEventListener("click", destroyBoxes);
+
+
+
+
+
+
 
 
 
