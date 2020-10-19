@@ -18,22 +18,16 @@ const images = [
     },
 ];
 
-root.insertAdjacentHTML("beforeend", "<ul class='list'></ul>");
-const list = document.querySelector(".list");
+const list = root.querySelector(".list");
 
 let item;
 let img;
 
 images.map(el => {
-    item = document.createElement("li");
-    list.append(item);
-    img = document.createElement("img");
-    item.append(img);
-    img.setAttribute("src", `${el.url}`);
-    img.setAttribute("alt", `${el.alt}`);
+    list.insertAdjacentHTML("beforeend", `<li><img src="${el.url}" alt="${el.alt}" /></li>`);
 });
 
 const items = document.querySelectorAll(".list li");
  for (let li of items) {
    li.classList.add("item");
- }
+ };

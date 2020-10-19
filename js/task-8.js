@@ -1,11 +1,8 @@
 const root = document.querySelector("#task-8");
 const container = root.querySelector(".container");
 const input = root.querySelector("#amount");
-const crt = root.querySelector("#create");
-const dlt = root.querySelector("#remove");
-
-
-
+const create = root.querySelector("#create");
+const remove = root.querySelector("#remove");
 
 const createBoxes = function(amount) {
     let item;
@@ -36,30 +33,12 @@ const createBoxes = function(amount) {
 };
 
 const destroyBoxes = function() {
-
-    const arr = [...container.children];
-    
-
-    for(let child of arr) {
-        container.removeChild(child);
-    }
+    container.innerHTML = "";
 };
 
-crt.addEventListener("click", ()=> {
+create.addEventListener("click", ()=> {
     const amount = +input.value;
     createBoxes(amount);
 });
-dlt.addEventListener("click", destroyBoxes);
 
-
-
-
-
-
-
-
-
-
-
-
-
+remove.addEventListener("click", destroyBoxes);

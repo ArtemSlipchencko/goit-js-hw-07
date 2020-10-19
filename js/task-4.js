@@ -9,8 +9,8 @@ const decrement = function() {
     +counterValue.textContent--;
 };
 
-const minus = root.querySelector(".pls");
-const plus = root.querySelector(".mns");
+const minus = root.querySelector('[data-action="decrement"]');
+const plus = root.querySelector('[data-action="increment"]');
 
 plus.addEventListener("click", increment);
 

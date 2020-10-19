@@ -13,10 +13,10 @@ const list = document.createElement("ul");
 
 root.append(list);
 
-let item;
+
 
 ingredients.map(itemText => {
-    item = document.createElement("li");
+    let item = document.createElement("li");
     item.textContent = itemText;
     list.append(item);
 });
